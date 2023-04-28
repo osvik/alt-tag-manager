@@ -3,6 +3,7 @@
 const dataLayer = Object.create(null);
 
 dataLayer.rules = [];
+dataLayer.logs = [];
 
 dataLayer.rule = function (fun) {
     dataLayer.rules.push(fun);
