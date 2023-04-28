@@ -1,16 +1,16 @@
 /* jshint esversion: 8 */
 
-const dataLayer = Object.create(null);
+const tagManager = Object.create(null);
 
-dataLayer.rules = [];
-dataLayer.logs = [];
+tagManager.rules = [];
+tagManager.logs = [];
 
-dataLayer.rule = function (fun) {
-    dataLayer.rules.push(fun);
+tagManager.rule = function (fun) {
+    tagManager.rules.push(fun);
 };
 
-dataLayer.push = function (params) {
-    dataLayer.rules.forEach(element => {
+tagManager.push = function (params) {
+    tagManager.rules.forEach(element => {
         element(params);
     });
 };

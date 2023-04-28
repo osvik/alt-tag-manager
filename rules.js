@@ -1,5 +1,7 @@
 /* jshint esversion: 8 */
 
+const dataLayer = Object.create(tagManager);
+
 dataLayer.rule(function (params) {
     if (
         params
