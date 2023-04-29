@@ -36,10 +36,14 @@ tagManager.push = function (params) {
     });
 };
 
-tagManager.event = function (eventName, cssSelector, paramsObj) {
+tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     const self = this;
     const proced = function () {
         self.push(paramsObj);
+    };
+    if (cssSelector === "") {
+        window.addEventListener(eventName, proced);
+        return true;
     }
     const list = document.querySelectorAll(cssSelector);
     if (list.length === 0) {
