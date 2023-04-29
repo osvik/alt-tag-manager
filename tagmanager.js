@@ -6,6 +6,22 @@ tagManager.rules = [];
 tagManager.logs = [];
 tagManager.debug = false;
 
+tagManager.variables = {
+    get path() {
+        return window.location.pathname;
+    },
+    get title() {
+        return document.title;
+    },
+    param(p) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has(p)) {
+            return params.get(p);
+        }
+        return "";
+    }
+
+};
 
 tagManager.rule = function (fun) {
     tagManager.rules.push(fun);
