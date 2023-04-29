@@ -4,7 +4,7 @@ const dataLayer = Object.create(tagManager);
 
 tagManager.debug = true;
 
-dataLayer.rule(function (params) {
+dataLayer.rule(function just_a_test(params) {
     if (
         params
     ) {

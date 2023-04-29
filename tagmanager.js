@@ -17,7 +17,7 @@ tagManager.push = function (params) {
     });
 };
 
-tagManager.rule((params) => {
+tagManager.rule(function logs_params(params) {
     if (tagManager.debug) {
         console.log("Datalayer params are: ", params);
     }
