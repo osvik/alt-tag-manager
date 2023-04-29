@@ -6,6 +6,7 @@ tagManager.rules = [];
 tagManager.logs = [];
 tagManager.debug = false;
 
+// Default variables
 tagManager.variables = {
     get path() {
         return window.location.pathname;
@@ -26,16 +27,19 @@ tagManager.variables = {
 
 };
 
+// Adds a rule function to the list of rules
 tagManager.rule = function (fun) {
     tagManager.rules.push(fun);
 };
 
+// Executes a dataLayer.push in all the rules
 tagManager.push = function (params) {
     tagManager.rules.forEach(element => {
         element(params);
     });
 };
 
+// Allows using events
 tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     const self = this;
     const proced = function () {
@@ -54,6 +58,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     }
 };
 
+// Default rule for testing/debugging
 tagManager.rule(function logs_params(params) {
     if (tagManager.debug) {
         console.log("Datalayer params are: ", params);
