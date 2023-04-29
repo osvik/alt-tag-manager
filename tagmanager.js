@@ -4,6 +4,8 @@ const tagManager = Object.create(null);
 
 tagManager.rules = [];
 tagManager.logs = [];
+tagManager.debug = false;
+
 
 tagManager.rule = function (fun) {
     tagManager.rules.push(fun);
@@ -14,3 +16,9 @@ tagManager.push = function (params) {
         element(params);
     });
 };
+
+tagManager.rule((params) => {
+    if (tagManager.debug) {
+        console.log("Datalayer params are: ", params);
+    }
+});
