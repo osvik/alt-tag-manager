@@ -20,6 +20,15 @@ dataLayer.rule(function just_another_test(params) {
     }
 });
 
+dataLayer.event("DOMContentLoaded", "", {
+    event: "DOM ready"
+});
+
+dataLayer.event("load", "", {
+    event: "Window loaded"
+});
+
 dataLayer.event("click", "li", {
-    userClick: "li"
+    event: "click",
+    element: "li"
 });
