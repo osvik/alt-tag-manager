@@ -36,6 +36,20 @@ tagManager.push = function (params) {
     });
 };
 
+tagManager.event = function (eventName, cssSelector, paramsObj) {
+    const self = this;
+    const proced = function () {
+        self.push(paramsObj);
+    }
+    const list = document.querySelectorAll(cssSelector);
+    if (list.length === 0) {
+        return false;
+    }
+    for (let el of list) {
+        el.addEventListener(eventName, proced);
+    }
+};
+
 tagManager.rule(function logs_params(params) {
     if (tagManager.debug) {
         console.log("Datalayer params are: ", params);

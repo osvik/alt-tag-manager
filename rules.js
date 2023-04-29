@@ -6,10 +6,20 @@ tagManager.debug = true;
 
 dataLayer.rule(function just_a_test(params) {
     if (
-        params
+        params.pageType === "Homepage"
     ) {
-        dataLayer.logs.push("Comment added to the log");
-    } else {
-        dataLayer.logs.push("Another comment added to the log");
+        dataLayer.logs.push("Homepage loaded");
     }
+});
+
+dataLayer.rule(function just_another_test(params) {
+    if (
+        params.userClick === "li"
+    ) {
+        dataLayer.logs.push("Recorded click event in li");
+    }
+});
+
+dataLayer.event("click", "li", {
+    userClick: "li"
 });
