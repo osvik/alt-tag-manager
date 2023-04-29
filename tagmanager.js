@@ -13,6 +13,9 @@ tagManager.variables = {
     get title() {
         return document.title;
     },
+    get referrer() {
+        return document.referrer;
+    },
     param(p) {
         const params = new URLSearchParams(window.location.search);
         if (params.has(p)) {
