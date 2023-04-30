@@ -35,16 +35,6 @@ dataLayer.rule(function just_another_test(params) {
  * Third parameter: Object with the datalayer push elements.
 */
 
-// When the dom is ready (html, css and javascript loaded)
-dataLayer.event("DOMContentLoaded", "", {
-    event: "DOM ready"
-});
-
-// When the page is loaded (images, css, javascript and other resources)
-dataLayer.event("load", "", {
-    event: "Window loaded"
-});
-
 // Example click event in a <li> html element
 dataLayer.event("click", "li", {
     event: "click",
