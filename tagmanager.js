@@ -4,6 +4,7 @@ const tagManager = Object.create(null);
 
 tagManager.rules = [];
 tagManager.logs = [];
+tagManager.pushLogs = [];
 tagManager.debug = false;
 
 // Default variables
@@ -29,12 +30,13 @@ tagManager.variables = {
 
 // Adds a rule function to the list of rules
 tagManager.rule = function (fun) {
-    tagManager.rules.push(fun);
+    this.rules.push(fun);
 };
 
 // Executes a dataLayer.push in all the rules
 tagManager.push = function (params) {
-    tagManager.rules.forEach(element => {
+    this.pushLogs.push(params);
+    this.rules.forEach(element => {
         element(params);
     });
 };
