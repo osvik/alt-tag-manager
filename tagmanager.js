@@ -42,9 +42,17 @@ tagManager.push = function (params) {
 // Allows using events
 tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     const self = this;
-    const proced = function () {
-        self.push(paramsObj);
-    };
+    let proced;
+    if (typeof (paramsObj) === "object") {
+        proced = function () {
+            self.push(paramsObj);
+        };
+    } else if (typeof (paramsObj) === "function") {
+        proced = paramsObj;
+    } else {
+        throw ("Event's third param must be either an object or a function");
+    }
+
     if (cssSelector === "") {
         window.addEventListener(eventName, proced);
         return true;
