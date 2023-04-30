@@ -51,6 +51,16 @@ dataLayer.event("click", "li", {
     element: "li"
 });
 
+// Example click event with manual data push and log using data from the event 
+dataLayer.event("click", "p.manual", function (e) {
+    dataLayer.push({
+        event: "click",
+        target: e.target,
+        text: e.target.innerText
+    });
+    dataLayer.logs.push("Recorded " + e.type + " event");
+});
+
 // HTML example, 10 seconds on page
 setTimeout(function () {
     dataLayer.push({
