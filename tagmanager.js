@@ -48,7 +48,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     let proced;
     if (typeof (paramsObj) === "object") {
         proced = function () {
-            self.run(paramsObj);
+            dataLayer.push(paramsObj);
         };
     } else if (typeof (paramsObj) === "function") {
         proced = paramsObj;
