@@ -4,7 +4,7 @@ const tagManager = Object.create(null);
 
 tagManager.rules = [];
 tagManager.logs = [];
-tagManager.pushLogs = [];
+tagManager.runLogs = [];
 tagManager.debug = false;
 
 // Default variables
@@ -33,9 +33,9 @@ tagManager.rule = function (fun) {
     this.rules.push(fun);
 };
 
-// Executes a myTagManager.push in all the rules
-tagManager.push = function (params) {
-    this.pushLogs.push(params);
+// Executes all the rules with the params
+tagManager.run = function (params) {
+    this.runLogs.push(params);
     this.rules.forEach(element => {
         element(params);
     });
@@ -47,7 +47,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     let proced;
     if (typeof (paramsObj) === "object") {
         proced = function () {
-            self.push(paramsObj);
+            self.run(paramsObj);
         };
     } else if (typeof (paramsObj) === "function") {
         proced = paramsObj;

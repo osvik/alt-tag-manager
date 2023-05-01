@@ -45,7 +45,7 @@ myTagManager.event("click", "li", {
 
 // Example click event with manual data push and log using data from the event 
 myTagManager.event("click", "p.manual", function (e) {
-    myTagManager.push({
+    myTagManager.run({
         "event": "click",
         "target": e.target,
         "text": e.target.innerText
@@ -55,7 +55,7 @@ myTagManager.event("click", "p.manual", function (e) {
 
 // HTML example, 10 seconds on page
 setTimeout(function () {
-    myTagManager.push({
+    myTagManager.run({
         "event": "10 seconds on page"
     });
 }, 10000);
