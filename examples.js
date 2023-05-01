@@ -67,3 +67,5 @@ setTimeout(function () {
         "event": "10 seconds on page"
     });
 }, 10000);
+
+myTM.start();

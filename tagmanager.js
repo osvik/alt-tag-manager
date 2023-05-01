@@ -87,6 +87,14 @@ tagManager.parseDL = function () {
     this.lastRun = n;
 };
 
+tagManager.start = function () {
+    this.parseDL();
+    setInterval(() => {
+        this.parseDL();
+    }, 500);
+
+};
+
 // Default tag for testing/debugging
 tagManager.tag(function logs_params(params) {
     if (tagManager.debug) {
