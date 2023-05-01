@@ -14,15 +14,20 @@ myTM.accounts = {};
  * Inside the "if" procedure area put the javascript tracking tag
 */
 
-myTM.tag(function once_per_page_example(params) {
+myTM.tag(function google_analytics_example(params) {
     if (
         params.event === "DOM ready"
     ) {
-        myTM.logs.push("Trigger to run on Dom Ready");
+        gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+        });
+        gtag('config', 'G-50HRM8825D');
+        myTM.logs.push("Second part of Google page load tag");
     }
 });
 
-myTM.tag(function once_per_page_2_example(params) {
+myTM.tag(function empty_dom_ready_example(params) {
     if (
         params.event === "DOM ready"
     ) {
@@ -34,6 +39,10 @@ myTM.tag(function click_li_example(params) {
     if (
         params.event === "click" && params.element === "li"
     ) {
+        gtag('event', 'click', {
+            'event_category': 'test',
+            'event_label': 'test'
+        });
         myTM.logs.push("Recorded click event in li");
     }
 });
