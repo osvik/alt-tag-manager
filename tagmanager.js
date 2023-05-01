@@ -5,6 +5,7 @@ const tagManager = Object.create(null);
 tagManager.rules = [];
 tagManager.logs = [];
 tagManager.runLogs = [];
+tagManager.lastParams = {};
 tagManager.debug = false;
 tagManager.lastRun = 0;
 
@@ -37,6 +38,7 @@ tagManager.rule = function (fun) {
 // Executes all the rules with the params
 tagManager.run = function (params) {
     this.runLogs.push(params);
+    Object.assign(this.lastParams, params);
     this.rules.forEach(element => {
         element(params);
     });
