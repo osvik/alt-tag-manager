@@ -14,7 +14,7 @@ myTagManager.accounts = {};
  * Inside the "if" procedure area put the javascript tracking tag
 */
 
-myTagManager.rule(function once_per_page(params) {
+myTagManager.rule(function once_per_page_example(params) {
     if (
         params.event === "DOM ready"
     ) {
@@ -22,7 +22,7 @@ myTagManager.rule(function once_per_page(params) {
     }
 });
 
-myTagManager.rule(function once_per_page_2(params) {
+myTagManager.rule(function once_per_page_2_example(params) {
     if (
         params.event === "DOM ready"
     ) {
@@ -30,7 +30,7 @@ myTagManager.rule(function once_per_page_2(params) {
     }
 });
 
-myTagManager.rule(function just_another_test(params) {
+myTagManager.rule(function click_li_example(params) {
     if (
         params.event === "click" && params.element === "li"
     ) {

@@ -71,8 +71,8 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     }
 };
 
-// Loops trough dataLayer and runs each element trough the rules
-tagManager.start = function () {
+// Loops trough dataLayer and runs each element trough all the rules
+tagManager.parseDL = function () {
     let n = this.lastRun;
     while (n < dataLayer.length) {
         this.run(dataLayer[n]);
