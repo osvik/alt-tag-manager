@@ -9,8 +9,12 @@
 </head>
 
 <body>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
     <script src="tagmanager.js" defer></script>
     <script src="rules.js" defer></script>
+
 
     <ul>
         <li>One</li>
@@ -20,13 +24,17 @@
     <p class="manual">Manual event</p>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            myTagManager.run({
-                "pageType": "Homepage",
-                "signedIn": "false",
-                "visitorType": "guest",
-                "userID": ""
-            });
+        dataLayer.push({
+            "pageType": "Homepage",
+            "signedIn": "false",
+            "visitorType": "guest",
+            "userID": ""
+        });
+        dataLayer.push({
+            "pageType": "Homepage",
+            "signedIn": "true",
+            "visitorType": "user",
+            "userID": "test"
         });
     </script>
 </body>

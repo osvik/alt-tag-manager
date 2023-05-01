@@ -6,6 +6,7 @@ tagManager.rules = [];
 tagManager.logs = [];
 tagManager.runLogs = [];
 tagManager.debug = false;
+tagManager.lastRun = 0;
 
 // Default variables
 tagManager.variables = {
@@ -66,6 +67,16 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     for (let el of list) {
         el.addEventListener(eventName, proced);
     }
+};
+
+// Loops trough dataLayer and runs each element trough the rules
+tagManager.start = function () {
+    let n = this.lastRun;
+    while (n < dataLayer.length) {
+        this.run(dataLayer[n]);
+        n = n + 1;
+    }
+    this.lastRun = n;
 };
 
 // Default rule for testing/debugging
