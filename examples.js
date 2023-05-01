@@ -14,14 +14,16 @@ myTM.accounts = {};
  * Inside the "if" procedure area put the javascript tracking tag
 */
 
-myTM.tag(function google_analytics_example(params) {
+myTM.tag(function google_analytics_page_load_example(params) {
     if (
         params.event === "DOM ready"
     ) {
+        // Google Analytics consent update
         gtag('consent', 'update', {
             'ad_storage': 'granted',
             'analytics_storage': 'granted'
         });
+        // Google Analytics page load tag
         gtag('config', 'G-50HRM8825D');
         myTM.logs.push("Second part of Google page load tag");
     }
@@ -31,24 +33,25 @@ myTM.tag(function empty_dom_ready_example(params) {
     if (
         params.event === "DOM ready"
     ) {
-        myTM.logs.push("Second trigger to run on Dom Ready");
+        myTM.logs.push("Second empty tag to run on Dom Ready");
     }
 });
 
-myTM.tag(function click_li_example(params) {
+myTM.tag(function google_analytics_click_li_example(params) {
     if (
         params.event === "click" && params.element === "li"
     ) {
+        // Google Analytics event click
         gtag('event', 'click', {
             'event_category': 'test',
             'event_label': 'test'
         });
-        myTM.logs.push("Recorded click event in li");
+        myTM.logs.push("Recorded click event in <li> html element");
     }
 });
 
 /*
- * TRIGGERS (Tags and myTM conditions of when they are fired)
+ * TRIGGERS (Events to trigger myTM)
  * First parameter: Name of the DOM events
  * Second parameter: CSS selector of the element, use "" for none
  * Third parameter: Object with the myTM push elements.

@@ -87,6 +87,7 @@ tagManager.parseDL = function () {
     this.lastRun = n;
 };
 
+// Starts watching for changes in dataLayer
 tagManager.start = function () {
     this.parseDL();
     setInterval(() => {
@@ -98,16 +99,16 @@ tagManager.start = function () {
 // Default tag for testing/debugging
 tagManager.tag(function logs_params(params) {
     if (tagManager.debug) {
-        console.log("myTagManager params are: ", params);
+        console.log("tagManager params are: ", params);
     }
 });
 
-// Default event: when the dom is ready (html, css and javascript loaded)
+// Default trigger: when the dom is ready (html, css and javascript loaded)
 tagManager.trigger("DOMContentLoaded", "", {
     "event": "DOM ready"
 });
 
-// Default event: when the page is loaded (images, css, javascript and other resources)
+// Default trigger: when the page is completeley loaded (images, css, javascript and other resources)
 tagManager.trigger("load", "", {
     "event": "Window loaded"
 });
