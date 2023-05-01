@@ -33,7 +33,7 @@ tagManager.rule = function (fun) {
     this.rules.push(fun);
 };
 
-// Executes a dataLayer.push in all the rules
+// Executes a myTagManager.push in all the rules
 tagManager.push = function (params) {
     this.pushLogs.push(params);
     this.rules.forEach(element => {
@@ -71,7 +71,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
 // Default rule for testing/debugging
 tagManager.rule(function logs_params(params) {
     if (tagManager.debug) {
-        console.log("Datalayer params are: ", params);
+        console.log("myTagManager params are: ", params);
     }
 });
 
