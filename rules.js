@@ -14,11 +14,19 @@ myTagManager.accounts = {};
  * Inside the "if" procedure area put the javascript tracking tag
 */
 
-myTagManager.rule(function just_a_test(params) {
+myTagManager.rule(function once_per_page(params) {
     if (
-        params.pageType === "Homepage"
+        params.event === "DOM ready"
     ) {
-        myTagManager.logs.push("Homepage loaded");
+        myTagManager.logs.push("Event to run on Dom Ready");
+    }
+});
+
+myTagManager.rule(function once_per_page_2(params) {
+    if (
+        params.event === "DOM ready"
+    ) {
+        myTagManager.logs.push("Second event to run on Dom Ready");
     }
 });
 
