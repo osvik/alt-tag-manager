@@ -2,7 +2,7 @@
 
 const tagManager = Object.create(null);
 
-tagManager.rules = [];
+tagManager.tags = [];
 tagManager.logs = [];
 tagManager.runLogs = [];
 tagManager.lastParams = {};
@@ -20,6 +20,12 @@ tagManager.variables = {
     get referrer() {
         return document.referrer;
     },
+    get origin() {
+        return window.location.origin;
+    },
+    get hash() {
+        return window.location.hash.substring(1);
+    },
     param(p) {
         const params = new URLSearchParams(window.location.search);
         if (params.has(p)) {
@@ -30,22 +36,22 @@ tagManager.variables = {
 
 };
 
-// Adds a rule function to the list of rules
-tagManager.rule = function (fun) {
-    this.rules.push(fun);
+// Adds a tag function to the list of tags
+tagManager.tag = function (fun) {
+    this.tags.push(fun);
 };
 
-// Executes all the rules with the params
+// Executes all the tags with the params
 tagManager.run = function (params) {
     this.runLogs.push(params);
     Object.assign(this.lastParams, params);
-    this.rules.forEach(element => {
+    this.tags.forEach(element => {
         element(params);
     });
 };
 
-// Allows using events
-tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
+// Allows using triggers
+tagManager.trigger = function (eventName, cssSelector = "", paramsObj = {}) {
     const self = this;
     let proced;
     if (typeof (paramsObj) === "object") {
@@ -55,7 +61,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     } else if (typeof (paramsObj) === "function") {
         proced = paramsObj;
     } else {
-        throw ("Event's third param must be either an object or a function");
+        throw ("Trigger's third param must be either an object or a function");
     }
 
     if (cssSelector === "") {
@@ -71,7 +77,7 @@ tagManager.event = function (eventName, cssSelector = "", paramsObj = {}) {
     }
 };
 
-// Loops trough dataLayer and runs each element trough all the rules
+// Loops trough dataLayer and runs each element trough all the tags
 tagManager.parseDL = function () {
     let n = this.lastRun;
     while (n < dataLayer.length) {
@@ -81,19 +87,19 @@ tagManager.parseDL = function () {
     this.lastRun = n;
 };
 
-// Default rule for testing/debugging
-tagManager.rule(function logs_params(params) {
+// Default tag for testing/debugging
+tagManager.tag(function logs_params(params) {
     if (tagManager.debug) {
         console.log("myTagManager params are: ", params);
     }
 });
 
 // Default event: when the dom is ready (html, css and javascript loaded)
-tagManager.event("DOMContentLoaded", "", {
+tagManager.trigger("DOMContentLoaded", "", {
     "event": "DOM ready"
 });
 
 // Default event: when the page is loaded (images, css, javascript and other resources)
-tagManager.event("load", "", {
+tagManager.trigger("load", "", {
     "event": "Window loaded"
 });
