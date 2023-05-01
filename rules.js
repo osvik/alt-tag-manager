@@ -4,6 +4,8 @@ const dataLayer = Object.create(tagManager);
 
 tagManager.debug = true;
 
+dataLayer.accounts = {};
+
 /*
  * RULES (Tags and dataLayer conditions of when they are fired)
  * The name of the function is for reference only with dataLayer.rules
