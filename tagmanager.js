@@ -77,10 +77,10 @@ tagManager.rule(function logs_params(params) {
 
 // Default event: when the dom is ready (html, css and javascript loaded)
 tagManager.event("DOMContentLoaded", "", {
-    event: "DOM ready"
+    "event": "DOM ready"
 });
 
 // Default event: when the page is loaded (images, css, javascript and other resources)
 tagManager.event("load", "", {
-    event: "Window loaded"
+    "event": "Window loaded"
 });

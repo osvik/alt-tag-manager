@@ -39,16 +39,16 @@ myTagManager.rule(function just_another_test(params) {
 
 // Example click event in a <li> html element
 myTagManager.event("click", "li", {
-    event: "click",
-    element: "li"
+    "event": "click",
+    "element": "li"
 });
 
 // Example click event with manual data push and log using data from the event 
 myTagManager.event("click", "p.manual", function (e) {
     myTagManager.push({
-        event: "click",
-        target: e.target,
-        text: e.target.innerText
+        "event": "click",
+        "target": e.target,
+        "text": e.target.innerText
     });
     myTagManager.logs.push("Recorded " + e.type + " event");
 });
@@ -56,6 +56,6 @@ myTagManager.event("click", "p.manual", function (e) {
 // HTML example, 10 seconds on page
 setTimeout(function () {
     myTagManager.push({
-        event: "10 seconds on page"
+        "event": "10 seconds on page"
     });
 }, 10000);
