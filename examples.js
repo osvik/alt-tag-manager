@@ -41,6 +41,15 @@ myTM.tag(function empty_dom_ready_example(params) {
     }
 });
 
+myTM.tag(function hash_has_changed_example(params) {
+    if (
+        params.event === "Hash changed"
+    ) {
+        // Add to the logs
+        myTM.logs.push("Hash changed in the URL. New hash: " + params.hash);
+    }
+});
+
 myTM.tag(function google_analytics_click_li_example(params) {
     if (
         params.event === "click" && params.element === "li"

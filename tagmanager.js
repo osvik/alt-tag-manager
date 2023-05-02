@@ -112,3 +112,9 @@ tagManager.trigger("DOMContentLoaded", "", {
 tagManager.trigger("load", "", {
     "event": "Window loaded"
 });
+
+// Default trigger: when the location.hash in the URL changes
+tagManager.trigger("hashchange", "", {
+    "event": "Hash changed",
+    "hash": tagManager.variables.hash
+});
