@@ -4,7 +4,9 @@ const myTM = Object.create(tagManager);
 
 tagManager.debug = true;
 
-myTM.accounts = {};
+myTM.accounts = {
+    GA4: "G-50HRM8825D"
+};
 
 /*
  * TAGS (Tags and myTM conditions of when they are fired)
@@ -24,7 +26,8 @@ myTM.tag(function google_analytics_page_load_example(params) {
             'analytics_storage': 'granted'
         });
         // Google Analytics page load tag
-        gtag('config', 'G-50HRM8825D');
+        gtag('config', myTM.accounts.GA4);
+        // Add to the logs
         myTM.logs.push("Second part of Google page load tag");
     }
 });
@@ -33,6 +36,7 @@ myTM.tag(function empty_dom_ready_example(params) {
     if (
         params.event === "DOM ready"
     ) {
+        // Add to the logs
         myTM.logs.push("Second empty tag to run on Dom Ready");
     }
 });
@@ -46,6 +50,7 @@ myTM.tag(function google_analytics_click_li_example(params) {
             'event_category': 'test',
             'event_label': 'test'
         });
+        // Add to the logs
         myTM.logs.push("Recorded click event in <li> html element");
     }
 });
