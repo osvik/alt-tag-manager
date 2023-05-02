@@ -59,6 +59,12 @@ tagManager.imagePixel = function (imageURL, params = {}) {
     document.body.appendChild(pixel);
 };
 
+// Add html to the body
+tagManager.addHtml = function (html, appendTo = document.body) {
+    const node = document.createRange().createContextualFragment(html);
+    appendTo.append(node);
+};
+
 // Adds a tag function to the list of tags
 tagManager.tag = function (fun) {
     this.tags.push(fun);
