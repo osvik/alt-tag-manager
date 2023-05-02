@@ -15,6 +15,23 @@ It's an experiment, not ready to put in production yet, but:
 
 ## How does it work?
 
-It has triggers, tags, variables, parameters, last parameters...
-
 It works with the dataLayer array.
+
+## Features summary
+
+- Tags
+- Triggers
+- Variables
+- Last parameters
+- Many logs:
+  - logs
+  - run logs
+  - debug mode
+  - inspect dataLayer
+- Create image pixels (pixels without 3rd party javascript)
+- Inject html in your pages
+- Default triggers:
+  - Dom ready
+  - Window loaded
+  - Hash changed
+
