@@ -36,6 +36,29 @@ tagManager.variables = {
 
 };
 
+// Create an URL with parameters from an object
+tagManager.addUrlParameters = function (baseUrl, params) {
+    const url = new URL(baseUrl);
+    const searchParams = new URLSearchParams(url.search);
+    Object.entries(params).forEach(([key, value]) => {
+        searchParams.append(key, value);
+    });
+    url.search = searchParams.toString();
+    return url.toString();
+};
+
+// Creates an image pixel
+tagManager.imagePixel = function (imageURL, params = {}) {
+    let pixel = document.createElement("img");
+    pixel.src = this.addUrlParameters(imageURL, params);
+    pixel.width = "1";
+    pixel.height = "1";
+    pixel.style.position = "absolute";
+    pixel.style.left = "-5px";
+    pixel.style.top = "0px";
+    document.body.appendChild(pixel);
+};
+
 // Adds a tag function to the list of tags
 tagManager.tag = function (fun) {
     this.tags.push(fun);
