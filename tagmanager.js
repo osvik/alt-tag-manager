@@ -83,8 +83,8 @@ tagManager.parseDL = function () {
     while (n < dataLayer.length) {
         this.run(dataLayer[n]);
         n = n + 1;
+        this.lastRun = n;
     }
-    this.lastRun = n;
 };
 
 // Starts watching for changes in dataLayer
