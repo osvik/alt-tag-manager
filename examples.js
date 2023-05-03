@@ -20,10 +20,10 @@ myTM.tag(function google_analytics_page_load_example(params) {
     if (
         params.event === "DOM ready"
     ) {
-        // Google Analytics consent update
+        // Google Analytics consent update based on the consent object
         gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'analytics_storage': 'granted'
+            'ad_storage': myTM.consent.advertising ? 'granted' : 'denied',
+            'analytics_storage': myTM.consent.analytics ? 'granted' : 'denied',
         });
         // Google Analytics page load tag
         gtag('config', myTM.accounts.GA4);
@@ -34,7 +34,7 @@ myTM.tag(function google_analytics_page_load_example(params) {
 
 myTM.tag(function empty_dom_ready_example(params) {
     if (
-        params.event === "DOM ready"
+        params.event === "DOM ready" && myTM.consent.analytics
     ) {
         // Add to the logs
         myTM.logs.push("Second empty tag to run on Dom Ready");
