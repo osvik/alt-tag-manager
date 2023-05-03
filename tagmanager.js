@@ -36,6 +36,16 @@ tagManager.variables = {
 
 };
 
+// Obtaining consent status
+tagManager.consent = {
+    get analytics() {
+        return true;
+    },
+    get advertising() {
+        return true;
+    }
+};
+
 // Create an URL with parameters from an object
 tagManager.addUrlParameters = function (baseUrl, params) {
     const url = new URL(baseUrl);
