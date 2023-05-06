@@ -16,7 +16,7 @@ myTM.accounts = {
  * Inside the "if" procedure area put the javascript tracking tag
 */
 
-myTM.tag(function google_analytics_page_load_example(params) {
+myTM.tag(function google_analytics_page_view(params) {
     if (
         params.event === "DOM ready"
     ) {
