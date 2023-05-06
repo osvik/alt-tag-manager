@@ -28,7 +28,7 @@ myTM.tag(function google_analytics_page_load_example(params) {
         // Google Analytics page load tag
         gtag('config', myTM.accounts.GA4);
         // Add to the logs
-        myTM.logs.push("Second part of Google page load tag");
+        myTM.logs.push("Second part of Google Analytics page load tag");
     }
 });
 
