@@ -36,13 +36,34 @@ tagManager.variables = {
 
 };
 
-// Obtaining consent status
+// Obtaining consent status. This method shoud be updated with the actual consent mechanism.
 tagManager.consent = {
+    _essential: true,
+    _analytics: true,
+    _advertising: true,
+    get essential() {
+        return this._essential;
+    },
+    set essential(value) {
+        if (typeof (value) === "boolean") {
+            this._essential = value;
+        }
+    },
     get analytics() {
-        return true;
+        return this._analytics;
+    },
+    set analytics(value) {
+        if (typeof (value) === "boolean") {
+            this._analytics = value;
+        }
     },
     get advertising() {
-        return true;
+        return this._advertising;
+    },
+    set advertising(value) {
+        if (typeof (value) === "boolean") {
+            this._advertising = value;
+        }
     }
 };
 
