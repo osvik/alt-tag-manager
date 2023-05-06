@@ -32,6 +32,21 @@ myTM.tag(function google_analytics_page_load_example(params) {
     }
 });
 
+myTM.tag(function google_analytics_consent_update(params) {
+    if (
+        params.event === "Consent updated"
+    ) {
+        // Google Analytics consent update based on the consent object
+        gtag('consent', 'update', {
+            'ad_storage': myTM.consent.advertising ? 'granted' : 'denied',
+            'analytics_storage': myTM.consent.analytics ? 'granted' : 'denied',
+        });
+        // Add to the logs
+        myTM.logs.push("Google Analytics consent updated");
+    }
+
+});
+
 myTM.tag(function empty_dom_ready_example(params) {
     if (
         params.event === "DOM ready" && myTM.consent.analytics
@@ -70,6 +85,11 @@ myTM.tag(function google_analytics_click_li_example(params) {
  * Second parameter: CSS selector of the element, use "" for none
  * Third parameter: Object with the myTM push elements.
 */
+
+// Listen to the DOM custom event ConsentUpdated and trigger a dataLayer event
+myTM.trigger("ConsentUpdated", "", {
+    "event": "Consent updated"
+});
 
 // Example click event in a <li> html element
 myTM.trigger("click", "li", {
