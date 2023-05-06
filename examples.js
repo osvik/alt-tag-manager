@@ -5,7 +5,8 @@ const myTM = Object.create(tagManager);
 tagManager.debug = true;
 
 myTM.accounts = {
-    GA4: "G-50HRM8825D"
+    GA4: "G-50HRM8825D",
+    hotjar: "1356277"
 };
 
 /*
@@ -43,6 +44,26 @@ myTM.tag(function google_analytics_consent_update(params) {
         });
         // Add to the logs
         myTM.logs.push("Google Analytics consent updated");
+    }
+
+});
+
+
+myTM.tag(function hotjar_page_view(params) {
+    if (
+        (params.event === "DOM ready" || params.event === "Consent updated") && myTM.consent.analytics
+    ) {
+        // Hotjar page load tag
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: myTM.accounts.hotjar, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
+        myTM.logs.push("Hotjar page load tag");
     }
 
 });
