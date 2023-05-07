@@ -75,7 +75,7 @@ container.accounts.twitter = "nx9ab";
 
 container.tag(function twitter_page_view(params) {
     if (
-        (params.event === "DOM ready" || params.event === "Consent updated") && container.consent.analytics
+        (params.event === "DOM ready" || params.event === "Consent updated") && container.consent.advertising
     ) {
         !function (e, t, n, s, u, a) {
             e.twq || (s = e.twq = function () {
@@ -88,6 +88,18 @@ container.tag(function twitter_page_view(params) {
     }
 
 });
+
+container.tag(function twitter_conversion(params) {
+    if (
+        params.event === "Signup form submit" && container.consent.advertising
+    ) {
+        twq('event', params.eventID, {
+        });
+        container.logs.push("Twitter conversion tag");
+    }
+
+});
+
 
 container.tag(function empty_dom_ready_example(params) {
     if (
@@ -131,6 +143,12 @@ container.trigger("click", "p.manual", function (e) {
         "text": e.target.innerText
     });
     container.logs.push("Recorded " + e.type + " event");
+});
+
+// Example submit form with class of "signup" and trigger a dataLayer event
+container.trigger("submit", "form.signup", {
+    "event": "Signup form submit",
+    "eventID": "tw-nx9ab-ockx6"
 });
 
 // HTML example, 10 seconds on page
