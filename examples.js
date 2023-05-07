@@ -22,14 +22,11 @@ myTM.tag(function google_analytics_page_view(params) {
     if (
         params.event === "DOM ready"
     ) {
-        // Google Analytics consent update based on the consent object
         gtag('consent', 'update', {
             'ad_storage': myTM.consent.advertising ? 'granted' : 'denied',
             'analytics_storage': myTM.consent.analytics ? 'granted' : 'denied',
         });
-        // Google Analytics page load tag
         gtag('config', myTM.accounts.GA4);
-        // Add to the logs
         myTM.logs.push("Second part of Google Analytics page load tag");
     }
 });
@@ -38,23 +35,31 @@ myTM.tag(function google_analytics_consent_update(params) {
     if (
         params.event === "Consent updated"
     ) {
-        // Google Analytics consent update based on the consent object
         gtag('consent', 'update', {
             'ad_storage': myTM.consent.advertising ? 'granted' : 'denied',
             'analytics_storage': myTM.consent.analytics ? 'granted' : 'denied',
         });
-        // Add to the logs
         myTM.logs.push("Google Analytics consent updated");
     }
 
 });
 
+myTM.tag(function google_analytics_click_li_example(params) {
+    if (
+        params.event === "click" && params.element === "li"
+    ) {
+        gtag('event', 'click', {
+            'event_category': 'test',
+            'event_label': 'test'
+        });
+        myTM.logs.push("Recorded click event in <li> html element");
+    }
+});
 
 myTM.tag(function hotjar_page_view(params) {
     if (
         (params.event === "DOM ready" || params.event === "Consent updated") && myTM.consent.analytics
     ) {
-        // Hotjar page load tag
         (function (h, o, t, j, a, r) {
             h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
             h._hjSettings = { hjid: myTM.accounts.hotjar, hjsv: 6 };
@@ -63,7 +68,6 @@ myTM.tag(function hotjar_page_view(params) {
             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
             a.appendChild(r);
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-
         myTM.logs.push("Hotjar page load tag");
     }
 
@@ -90,7 +94,6 @@ myTM.tag(function empty_dom_ready_example(params) {
     if (
         params.event === "DOM ready" && myTM.consent.analytics
     ) {
-        // Add to the logs
         myTM.logs.push("Second empty tag to run on Dom Ready");
     }
 });
@@ -99,22 +102,7 @@ myTM.tag(function hash_has_changed_example(params) {
     if (
         params.event === "Hash changed"
     ) {
-        // Add to the logs
         myTM.logs.push("Hash changed in the URL. New hash: " + params.hash);
-    }
-});
-
-myTM.tag(function google_analytics_click_li_example(params) {
-    if (
-        params.event === "click" && params.element === "li"
-    ) {
-        // Google Analytics event click
-        gtag('event', 'click', {
-            'event_category': 'test',
-            'event_label': 'test'
-        });
-        // Add to the logs
-        myTM.logs.push("Recorded click event in <li> html element");
     }
 });
 
