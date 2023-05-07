@@ -4,10 +4,6 @@ const myTM = Object.create(tagManager);
 
 tagManager.debug = true;
 
-myTM.accounts.GA4 = "G-50HRM8825D";
-myTM.accounts.hotjar = "1356277";
-myTM.accounts.twitter = "nx9ab";
-
 /*
  * TAGS (Tags and myTM conditions of when they are fired)
  * The name of the function is for reference only with myTM.tags
@@ -15,6 +11,8 @@ myTM.accounts.twitter = "nx9ab";
  * it can include myTMParams or variables
  * Inside the "if" procedure area put the javascript tracking tag
 */
+
+myTM.accounts.GA4 = "G-50HRM8825D";
 
 myTM.tag(function google_analytics_page_view(params) {
     if (
@@ -54,6 +52,8 @@ myTM.tag(function google_analytics_click_li_example(params) {
     }
 });
 
+myTM.accounts.hotjar = "1356277";
+
 myTM.tag(function hotjar_page_view(params) {
     if (
         (params.event === "DOM ready" || params.event === "Consent updated") && myTM.consent.analytics
@@ -71,6 +71,7 @@ myTM.tag(function hotjar_page_view(params) {
 
 });
 
+myTM.accounts.twitter = "nx9ab";
 
 myTM.tag(function twitter_page_view(params) {
     if (
