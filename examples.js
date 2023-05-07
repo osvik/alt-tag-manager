@@ -6,7 +6,8 @@ tagManager.debug = true;
 
 myTM.accounts = {
     GA4: "G-50HRM8825D",
-    hotjar: "1356277"
+    hotjar: "1356277",
+    twitter: "nx9ab"
 };
 
 /*
@@ -64,6 +65,23 @@ myTM.tag(function hotjar_page_view(params) {
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 
         myTM.logs.push("Hotjar page load tag");
+    }
+
+});
+
+
+myTM.tag(function twitter_page_view(params) {
+    if (
+        (params.event === "DOM ready" || params.event === "Consent updated") && myTM.consent.analytics
+    ) {
+        !function (e, t, n, s, u, a) {
+            e.twq || (s = e.twq = function () {
+                s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+            }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js',
+                a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))
+        }(window, document, 'script');
+        twq('config', myTM.accounts.twitter);
+        myTM.logs.push("Twitter page load tag");
     }
 
 });
