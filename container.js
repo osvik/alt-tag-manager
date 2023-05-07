@@ -1,8 +1,8 @@
 /* jshint esversion: 8 */
 
-const container = Object.create(tagManager);
-
 tagManager.debug = true;
+
+const container = Object.create(tagManager);
 
 /*
  * TAGS (Tags and conditions of when they are fired)

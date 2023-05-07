@@ -53,8 +53,8 @@
         {
             const element = document.getElementById("allowAllCookies")
             element.addEventListener("click", function () {
-                myTM.consent.analytics = true;
-                myTM.consent.advertising = true;
+                container.consent.analytics = true;
+                container.consent.advertising = true;
                 window.dispatchEvent(new CustomEvent("ConsentUpdated"));
             });
         }
