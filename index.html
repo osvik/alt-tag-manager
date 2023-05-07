@@ -47,6 +47,19 @@
             "userID": "test"
         });
     </script>
+
+    <button id="allowAllCookies" type="button">Allow all cookies</button>
+    <script>
+        {
+            const element = document.getElementById("allowAllCookies")
+            element.addEventListener("click", function () {
+                myTM.consent.analytics = true;
+                myTM.consent.advertising = true;
+                window.dispatchEvent(new CustomEvent("ConsentUpdated"));
+            });
+        }
+
+    </script>
 </body>
 
 </html>

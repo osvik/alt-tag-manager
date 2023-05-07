@@ -39,8 +39,8 @@ tagManager.variables = {
 // Obtaining consent status. This method shoud be updated with the actual consent mechanism.
 tagManager.consent = {
     _essential: true,
-    _analytics: true,
-    _advertising: true,
+    _analytics: false,
+    _advertising: false,
     get essential() {
         return this._essential;
     },
