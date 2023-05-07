@@ -8,6 +8,7 @@ tagManager.runLogs = [];
 tagManager.lastParams = {};
 tagManager.debug = false;
 tagManager.lastRun = 0;
+tagManager.accounts = {};
 
 // Default variables
 tagManager.variables = {

@@ -4,11 +4,9 @@ const myTM = Object.create(tagManager);
 
 tagManager.debug = true;
 
-myTM.accounts = {
-    GA4: "G-50HRM8825D",
-    hotjar: "1356277",
-    twitter: "nx9ab"
-};
+myTM.accounts.GA4 = "G-50HRM8825D";
+myTM.accounts.hotjar = "1356277";
+myTM.accounts.twitter = "nx9ab";
 
 /*
  * TAGS (Tags and myTM conditions of when they are fired)
