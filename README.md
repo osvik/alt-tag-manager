@@ -1,10 +1,10 @@
-# Code-based tag manager
+# Alternative code-based tag manager
 
-Script to help me organise the tracking in my websites without using a Tag Manager.
+Script to help organizing visitor tracking in my websites without using a Tag Manager.
 
 ## Why?
 
-It's an **experiment**, not ready to use in production yet, but:
+It's an **experiment** and:
 
 - It’s **lightweight**. The web pages load faster and spend less battery and resources. An empty tag manager:
   - GTM has 102KB, 40KB tranfered.
