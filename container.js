@@ -37,7 +37,6 @@ container.tag(function google_analytics_consent_update(params) {
         });
         container.logs.push("Google Analytics consent updated");
     }
-
 });
 
 container.tag(function google_analytics_click_li_example(params) {
@@ -68,7 +67,6 @@ container.tag(function hotjar_page_view(params) {
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
         container.logs.push("Hotjar page load tag");
     }
-
 });
 
 container.accounts.twitter = "nx9ab";
@@ -86,7 +84,6 @@ container.tag(function twitter_page_view(params) {
         twq('config', container.accounts.twitter);
         container.logs.push("Twitter page load tag");
     }
-
 });
 
 container.tag(function twitter_conversion(params) {
@@ -97,9 +94,7 @@ container.tag(function twitter_conversion(params) {
         });
         container.logs.push("Twitter conversion tag");
     }
-
 });
-
 
 container.tag(function empty_dom_ready_example(params) {
     if (

@@ -18,24 +18,25 @@ It's an **experiment** and:
 
 ## How does it work?
 
-It works with the dataLayer array.
+When something is pushed to the dataLayer it checks all the tags and fire those that match. It has triggers that can watch anything that happens in a page. It also has variables, can use consent mode, has logs any many other features. 
 
 ## Features summary
 
-- Tags
-- Triggers
-- Variables
-- Last parameters
-- Consent functions
+- **Tags** - Correspond to one service and can be fired by one or more triggers.
+- **Triggers** - Watch something that happens in a page (including page loading) and fire one or more tags. With this tag manager you can control exactly what information is sent to the tags.
+- **Variables** - Get values about the page or the user.
+- **Last parameters** - Keeps track of the last values sent by dataLayer objects. Last params can also be used in triggers to perform math operations and/or create tags that fire when a sequence of triggers happen. 
+- **Consent functions** - Help to integrate the tag manager with consent dialogs.
 - Many logs:
-  - logs
-  - run logs
-  - debug mode
-  - inspect dataLayer
-- Create image pixels (pixels without 3rd party javascript)
-- Inject html in your pages
-- Default triggers:
+  - **Logs** - Manual records of tags that have fired or triggers.
+  - **Run logs** - Already processed dataLayer objects
+  - **Debug mode** - When enabled outputs stuff to the developer console.
+  - **Inspect dataLayer** - All triggers output something to the dataLayer. You can inspect it to check what events have happened in the page.
+- Create **image pixels** (pixels without 3rd party javascript). Useful to limit data collection of a service. TODO: I'm working on other image pixels that limit what cookies can be inserted.
+- **Inject html** in your pages
+- **Default triggers**:
   - Dom ready
   - Window loaded
   - Hash changed
-
+- **Recommended triggers**:
+  - Consent updated
