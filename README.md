@@ -2,6 +2,8 @@
 
 Script to help organizing visitor tracking in my websites without using a Tag Manager.
 
+&rarr; **[Wiki with documentation](https://github.com/osvik/alt-tag-manager/wiki)** &larr;
+
 ## Why?
 
 It's an **experiment** and:
@@ -18,15 +20,16 @@ It's an **experiment** and:
 
 ## How does it work?
 
-When something is pushed to the dataLayer it checks all the tags and fire those that match. It has triggers that can watch anything that happens in a page. It also has variables, can use consent mode, has logs any many other features. 
+When something is pushed to the `dataLayer` it checks all the tags and fire those that match. It has triggers that can watch anything that happens in a page. It also has variables, can use consent mode, has logs any many other features. 
 
 ## Features summary
 
-- **Tags** - Correspond to one service and can be fired by one or more triggers.
+- **dataLayer** - It uses the `dataLayer` object, so many websites already have triggers that it can use
+- **Tags** - Send information to one service and can be fired by one or more triggers.
 - **Triggers** - Watch something that happens in a page (including page loading) and fire one or more tags. With this tag manager you can control exactly what information is sent to the tags.
-- **Variables** - Get values about the page or the user.
-- **Last parameters** - Keeps track of the last values sent by dataLayer objects. Last params can also be used in triggers to perform math operations and/or create tags that fire when a sequence of triggers happen. 
-- **Consent functions** - Help to integrate the tag manager with consent dialogs.
+- **Variables** - Get values about the web page, website or the user's browser.
+- **Last parameters** - Keeps track of the last values sent by dataLayer objects. Last params can also be used in triggers to perform math operations and/or fire tags that when a sequence of triggers happen. 
+- **Consent functions** - Help to integrate the tag manager with cookie or tracking consent dialogs.
 - Many logs:
   - **Logs** - Manual records of tags that have fired or triggers.
   - **Run logs** - Already processed dataLayer objects
