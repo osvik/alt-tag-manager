@@ -34,7 +34,6 @@ tagManager.variables = {
         }
         return "";
     }
-
 };
 
 // Obtaining consent status. This method shoud be updated with the actual consent mechanism.
@@ -91,6 +90,20 @@ tagManager.imagePixel = function (imageURL, params = {}) {
     document.body.appendChild(pixel);
 };
 
+// Creates a cookieless image pixel
+tagManager.cookieLessImagePixel = function (baseUrl, params = {}) {
+    const url = this.addUrlParameters(baseUrl, params);
+    const pixelSrc = `<img src='${url}' />`;
+    const pc = document.createElement("iframe");
+    pc.width = 1;
+    pc.height = 1;
+    pc.role = "img";
+    pc.frameBorder = "0";
+    pc.sandbox = "";
+    pc.srcdoc = pixelSrc;
+    document.body.appendChild(pc);
+};
+
 // Add html to the body
 tagManager.addHtml = function (html, appendTo = document.body) {
     const node = document.createRange().createContextualFragment(html);
@@ -124,7 +137,6 @@ tagManager.trigger = function (eventName, cssSelector = "", paramsObj = {}) {
     } else {
         throw ("Trigger's third param must be either an object or a function");
     }
-
     if (cssSelector === "") {
         window.addEventListener(eventName, proced);
         return true;
@@ -154,7 +166,6 @@ tagManager.start = function () {
     setInterval(() => {
         this.parseDL();
     }, 500);
-
 };
 
 // Default tag for testing/debugging

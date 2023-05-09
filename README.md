@@ -32,8 +32,9 @@ When something is pushed to the dataLayer it checks all the tags and fire those 
   - **Run logs** - Already processed dataLayer objects
   - **Debug mode** - When enabled outputs stuff to the developer console.
   - **Inspect dataLayer** - All triggers output something to the dataLayer. You can inspect it to check what events have happened in the page.
-- Create **image pixels** (pixels without 3rd party javascript). Useful to limit data collection of a service. TODO: I'm working on other image pixels that limit what cookies can be inserted.
-- **Inject html** in your pages
+- Create tags with **image pixels** - Image pixels don't add 3rd party JavaScript that can collect more data on your users.
+- Create tags with **cookieless image pixels** - Prevents an image pixel from adding a cookie in your user's browser. 
+- Tags that **inject html** in your pages
 - **Default triggers**:
   - Dom ready
   - Window loaded
