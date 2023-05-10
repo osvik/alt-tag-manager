@@ -34,9 +34,9 @@ tagManager.variables = {
         }
         return "";
     },
-    getFormData(formElementId) {
-        const form = document.getElementById(formElementId);
-        const fData = new FormData(form);
+    form(formElementId) {
+        const formEl = document.getElementById(formElementId);
+        const fData = new FormData(formEl);
         let formObject = {};
         for (const pair of fData.entries()) {
             formObject[pair[0]] = pair[1];
