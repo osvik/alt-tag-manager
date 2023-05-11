@@ -27,10 +27,10 @@ tagManager.variables = {
     get hash() {
         return window.location.hash.substring(1);
     },
-    param(p) {
+    param(urlParam) {
         const params = new URLSearchParams(window.location.search);
-        if (params.has(p)) {
-            return params.get(p);
+        if (params.has(urlParam)) {
+            return params.get(urlParam);
         }
         return "";
     },
