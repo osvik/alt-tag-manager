@@ -14,6 +14,7 @@ It's an **experiment** and:
   - This script has less than 3KB. 
 - The tag manager itself **does not share any information with any company**.
 - The tag manager itself **isn't blocked by ad blockers** or the Brave browser.
+- Can create tags with the main and an alternative version if the user doesn't accept cookies.
 - It allows more **complex triggers**. This is particularly useful to better manage tags together with cookie consent
 - I can **add triggers and tags** either from one ot more JavaScript files or from a web page / template, also using a Wordpress content block.
 - Can **use Google Analytics events to trigger other non-GA tags**.
