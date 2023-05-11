@@ -48,6 +48,7 @@ tagManager.variables = {
         year: new Date().getFullYear(),
         month: new Date().getMonth() + 1,
         day: new Date().getDate(),
+        weekday: new Date().getDay(),
         hour: new Date().getHours(),
         minute: new Date().getMinutes()
     }
