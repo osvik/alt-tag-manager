@@ -34,8 +34,8 @@ tagManager.variables = {
         }
         return "";
     },
-    form(formElementId) {
-        const formEl = document.getElementById(formElementId);
+    form(cssSelector) {
+        const formEl = document.querySelector(cssSelector);
         const fData = new FormData(formEl);
         let formObject = {};
         for (const pair of fData.entries()) {
