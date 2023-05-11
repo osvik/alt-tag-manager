@@ -42,6 +42,14 @@ tagManager.variables = {
             formObject[pair[0]] = pair[1];
         }
         return formObject;
+    },
+    now: {
+        date: new Date().toJSON().split('T')[0],
+        year: new Date().getFullYear(),
+        month: new Date().getMonth() + 1,
+        day: new Date().getDate(),
+        hour: new Date().getHours(),
+        minute: new Date().getMinutes()
     }
 };
 
