@@ -28,7 +28,7 @@ When something is pushed to the `dataLayer` it checks all the tags and fire thos
 - **dataLayer** - It uses the `dataLayer` object, so many websites already have triggers that it can use
 - **Tags** - Send information to one service and can be fired by one or more triggers.
 - **Triggers** - Watch something that happens in a page (including page loading) and fire one or more tags. With this tag manager you can control exactly what information is sent to the tags.
-- **Variables** - Get values about the web page, website or the user's browser.
+- **Variables** - Get values about the web page, website, the user's browser or the current date/time.
 - **Last parameters** - Keeps track of the last values sent by dataLayer objects. Last params can also be used in triggers to perform math operations and/or fire tags that when a sequence of triggers happen. 
 - **Consent functions** - Help to integrate the tag manager with cookie or tracking consent dialogs.
 - Many logs:
