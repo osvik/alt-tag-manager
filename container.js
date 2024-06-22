@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* jshint esversion: 8 */
 
 tagManager.debug = true;

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* jshint esversion: 8 */
 
 const tagManager = Object.create(null);
@@ -160,6 +161,7 @@ tagManager.run = function (params) {
 
 // Allows using triggers
 tagManager.trigger = function (eventName, cssSelector = "", paramsObj = {}) {
+    // eslint-disable-next-line no-unused-vars
     const self = this;
     let proced;
     if (typeof (paramsObj) === "object") {

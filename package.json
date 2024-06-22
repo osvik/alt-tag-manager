@@ -1,0 +1,27 @@
+{
+  "name": "alt-tag-manager",
+  "version": "1.0.0",
+  "description": " Code based tag manager.",
+  "main": "container.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osvik/alt-tag-manager.git"
+  },
+  "keywords": [
+    "tag-manager"
+  ],
+  "author": "Osvaldo Gago",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/osvik/alt-tag-manager/issues"
+  },
+  "homepage": "https://github.com/osvik/alt-tag-manager#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "eslint": "^9.5.0",
+    "globals": "^15.6.0"
+  }
+}
